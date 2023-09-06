@@ -1,0 +1,61 @@
+<!-- File: sign_up.html -->
+<!-- Author: [Ranveer Dhaliwal] -->
+<!-- Date: [2023-09-05] -->
+<!-- Description: This HTML template extends the "base.html" template and is used for the sign-up page. 
+    Includes a form where users can enter their email address, first name, password, and confirm password to create a new account. -->
+
+{% extends "base.html" %} {% block title %} sign-up {% endblock%}
+
+{% block content%}
+
+<form method="POST">
+    <h3 align="center"> Sign-up</h3>
+    <div class="form-group">
+        <label for="email"> Email Address</label>
+        <input 
+            type="email" 
+            class="form-control" 
+            id="email" 
+            name="email"  
+            placeholder="Enter Email"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="firstName"> First Name</label>
+        <input 
+            type="text" 
+            class="form-control" 
+            id="firstName" 
+            name="firstName"  
+            placeholder="Enter first name"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="password1"> Password</label>
+        <input 
+            type="password" 
+            class="form-control" 
+            id="password1" 
+            name="password1"  
+            placeholder="Enter password"
+        >
+    </div>
+
+    <div class="form-group">
+        <label for="password2"> Confirm Password</label>
+        <input 
+            type="password" 
+            class="form-control" 
+            id="password2" 
+            name="password2"  
+            placeholder="Confirm Password"
+        >
+    </div>
+    <br>
+    <button type="submit" class="btn btn-primary btn-lg"> Submit </button>
+</form>
+
+
+{% endblock %}

@@ -1,0 +1,82 @@
+<!-- File: movies.html -->
+<!-- Author: [Ranveer Dhaliwal] -->
+<!-- Date: [2023-09-05] -->
+<!-- Description: Template extends the "base.html" template and displays the user's list of movies. 
+    Includes the movie title, genre, publish year, and user rating (if available) in a table format. 
+    Users can also edit or delete movies from this page, and there's an option to add a new movie. -->
+
+
+{% extends "base.html" %} {% block title %} Movies {% endblock %}
+
+{% block content%}
+
+<!-- Link to Google Fonts for special symbols -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+
+<h1> Your Movies List</h1>
+
+<!-- Table that has 4 coloums to represent each movie in the database-->
+<table class="table">
+    <thead>
+        <tr> 
+            <th align="centre" >Title</th>
+            <th align="centre" >Genre</th>
+            <th align="centre" >Publish Year</th>
+            <th align="right" >Your Rating</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for movie in movies %}
+        <tr>
+            <td align="centre">{{ movie.title }}</td>
+            <td align="centre">{{ movie.genre }}</td>
+            <td align="centre">{{ movie.publish_year }}</td>
+
+            {% if movie.user_rating == None %}
+            <td align="right">Not Rated 
+                <a href="{{url_for('views.rating', movie_id=movie.id)}}" class="btn btn-link">  
+                    <span align="left" class="material-symbols-outlined">
+                        edit
+                    </span>
+                </a>
+
+                <a href="{{url_for('views.delete_movie', movie_id=movie.id)}}" class="btn btn-link" onclick="return confirm('Are you sure you want to delete this movie?')">
+                    <span class="material-symbols-outlined">
+                        delete
+                    </span>     
+                </a>
+
+            </td>
+            {% else %}
+            <td align="right"> {{movie.user_rating}} 
+                <a href="{{url_for('views.rating', movie_id=movie.id)}}" class="btn btn-link">  
+                    <span  align="left" class="material-symbols-outlined">
+                        edit
+                    </span>
+
+                </a>
+
+                <a href="{{url_for('views.delete_movie', movie_id=movie.id)}}" class="btn btn-link" onclick="return confirm('Are you sure you want to delete this movie?')">
+                    <span class="material-symbols-outlined">
+                        delete
+                    </span>     
+                </a>
+
+            </td>
+
+            {% endif %} 
+
+
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+
+
+<div align="center">
+    <a href="{{url_for('views.add_movie')}}" class="btn btn-primary"> Add New Movie </a>
+</div>
+
+{% endblock %}

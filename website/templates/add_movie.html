@@ -1,0 +1,80 @@
+<!-- File: add_movie.html -->
+<!-- Author: [Ranveer Dhaliwal] -->
+<!-- Date: [2023-09-05] -->
+
+<!-- Description: -->
+<!-- Defines a form for adding a movie. -->
+<!-- Extends a base template and overrides the title and content blocks. -->
+
+<!-- Extend the 'base.html' template,  override the title block, set the page title to "Add Movie" -->
+{% extends "base.html" %} {% block title %} Add Movie {% endblock%}
+
+
+<!-- Override the content block -->
+{% block content%} 
+
+<form action="{{url_for('views.add_movie') }}" method="POST">
+    <h3>  Add Movie </h3>
+
+    <!-- Form fields for adding a movie -->
+    <div class = "form-group">
+        <label for="title"> Title </label>
+        <input
+            type="text"
+            class = "form-control"
+            id = "title"
+            name = "title"
+            placeholder="Enter Title"
+        >
+    </div>
+
+        <div class = "form-group">
+        <label for="genre"> Genre </label>
+        <input
+            type="text"
+            class = "form-control"
+            id = "genre"
+            name = "genre"
+            placeholder="Enter genre"
+        >
+    </div>
+
+        <div class = "form-group">
+        <label for="publish_year"> Year Published </label>
+        <input
+            type="integer"
+            class = "form-control"
+            id = "publish_year"
+            name = "publish_year"
+            placeholder="Enter Year Published"
+        >
+    </div>
+
+        <div class = "form-group">
+        <label for="description"> Description </label>
+        <input
+            type="text"
+            class = "form-control"
+            id = "description"
+            name = "description"
+            placeholder="Enter description"
+        >
+    </div>
+        <div class = "form-group">
+        <label for="user_rating"> Rating </label>
+        <input
+            type="text"
+            class = "form-control"
+            id = "user_rating"
+            name = "user_rating"
+            value = "None"
+            placeholder="Enter Your Rating"
+            
+        >
+    </div>
+
+    <br>
+
+    <button type="submit" class="btn btn-primary btn lg"> Submit</button>
+</form>
+{% endblock %}

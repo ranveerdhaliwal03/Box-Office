@@ -1,0 +1,23 @@
+<!-- File: index.html -->
+<!-- Author: [Ranveer Dhaliwa] -->
+<!-- Date: [2023-09-05] -->
+<!-- Description: Template extends the "base.html" template and serves as the home page of the Box Office web application.
+    Provides an introduction to the application, its purpose, and showcases the integration of Flask, SQLAlchemy, and frontend technologies. -->
+
+
+{% extends "base.html" %} {% block title %} Box Office {% endblock%}
+
+
+{% block content%}
+
+<h1> Welcome to Box Office </h1>
+<br>
+
+<h3> What is Box Office?</h3>
+    <p> Welcome to Box Office! We're thrilled to have you on board, and we're excited to introduce you to the world of movie management. Box Office is your go-to application for curating your personal movie watchlist. With Box Office, you can effortlessly add new films to your collection, leave reviews and ratings, and remove them when you're ready to move on. Whether you're a dedicated cinephile or simply enjoy discovering new movies, Box Office is here to elevate your movie-watching experience and keep your movie choices organized.</p>
+    <br>
+    <p> Box Office is not just about movie management, it's also a demonstration of robust web development principles and the seamless integration of backend data management. This project showcases the power of Python-based web frameworks like Flask and SQLAlchemy. These technologies work in harmony to ensure secure user registration and login systems, utilizing hashed passwords to protect user data. With SQL database management, Box Office exemplifies the core CRUD (Create, Read, Update, Delete) operations that are the backbone of web applications. This project isn't just about movies, it's a showcase of how modern web applications handle data, ensuring both security and functionality</p>
+    <br>
+    <p> In addition to its backend prowess, Box Office pays equal attention to creating a user-friendly and visually engaging front-end. The app's frontend leverages HTML templates, Bootstrap for styling, and Flask's Jinja2 templating engine. This combination results in an intuitive user experience, where the focus is not only on aesthetics but also on functionality and accessibility.  Box Office will not only enhance your movie-watching experience but also provide you with insights into creating engaging and user-centric web applications. Box Office also serves as an example of a my ability to craft interfaces that are not only visually pleasing but also responsive and user-driven.  </p>
+
+{% endblock %}
